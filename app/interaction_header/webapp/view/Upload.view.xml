@@ -1,0 +1,223 @@
+<mvc:View xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="interactionheader.controller.Upload" class="viewPadding">
+    <Page xmlns="sap.m" id="_IDGenPage1" showHeader="true" title="ESG Data Collection" showFooter="true">
+        <content>
+            <IconTabBar select="onSelectTab" selectedKey="__filter0" id="bar11">
+                <items>
+                    <IconTabFilter text="Master" selectedKey="filter1" id="filter0" iconDensityAware="false" icon="sap-icon://header">
+                        <content>
+                            <!-- <l:VerticalLayout id="_IDGenVerticalLayout2"> -->
+                                <!-- <l:content> -->
+                                    
+                                    <Bar id="bar1">
+                                        <contentLeft>
+                                            <u:FileUploader id="fileUploader" width="400px" name="fup_data" uploadUrl="upload/" tooltip="Upload new material file to the server" change="handleValueChange" typeMissmatch="handleTypeMissmatch" style="Emphasized" fileType="csv" placeholder="Choose a file for Upload...">
+                                                <u:parameters>
+                                                    <u:FileUploaderParameter name="param1" id="11" value="Foo"/>
+                                                    <u:FileUploaderParameter name="param2" id="21" value="bar"/>
+                                                </u:parameters>
+                                                <u:headerParameters>
+                                                    <u:FileUploaderParameter name="headerParam1" id="31" value="Foo"/>
+                                                    <u:FileUploaderParameter name="headerParam2" id="41" value="bar"/>
+                                                </u:headerParameters>
+                                            </u:FileUploader>
+                                                                                                    
+                                        </contentLeft>
+                                        <contentRight>
+                                            <Button id="_IDGenButton21" icon="sap-icon://complete" text="Submit" press="handleSubmit"/>
+                                        </contentRight>
+                                    </Bar>
+                                    <ScrollContainer  width="100%" horizontal="true" vertical="true" focusable="true">
+                                            <!-- mode="SingleSelectLeft" -->
+                                        <Table xmlns="sap.m" id="itemsTable" width="100%" items="{/}" inset="false" updateFinished="onTableUpdateFinished" sticky="ColumnHeaders,HeaderToolbar" growing="true" >
+                                            <headerToolbar>
+                                                <Toolbar>
+                                                    <Title id="tblTitle1" text="Master Data" level="Auto"/>
+                                                    <!--         <Button id="_IDGenButton31" icon="sap-icon://database" text="Retrieve Data" press="handleRetrievePress" />
+                                                    <Button id="_IDGenButton41" icon="sap-icon://add" text="Add Row" press="handleAddPress" />
+                                                    <Button id="_IDGenButton51" icon="sap-icon://edit" text="Edit Row" press="handleEditPress" />
+                                                    <Button id="_IDGenButton61" icon="sap-icon://delete" text="Delete Row" press="handleDeletePress" />
+                                                    <Button id="_IDGenButton71" icon="sap-icon://save" text="Save Row" press="handleSavePress" /> -->
+                                                </Toolbar>
+                                            </headerToolbar>
+                                            <columns>
+                                                <Column width="100px">
+                                                    <Text text="Status"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Variables"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Names of variable"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Variable number"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Major Classification"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Minor classification"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Data Source Flag: SCT"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Data Source Flag: Manual"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Direction to aim for"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Staggered years (Overview)"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Staggered years (VRC)"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Staggered year exclusion flag"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Relevant Flag for Overview Analysis"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Relevant Flag for VRC"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Start period (Year)"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="End period (Year)"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Item No."/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="Item"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="SCT API - Entity name"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="SCT API - Measure field name"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="SCT API - Filter dimension ID"/>
+                                                </Column>
+                                                <Column width="100px">
+                                                    <Text text="SCT API - Filter value"/>
+                                                </Column>
+                                            </columns>
+                                            <items>
+                                                <ColumnListItem xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" cd:w5g.dt.context="/Interactions_Header">
+                                                    <cells>
+                                                        <ObjectStatus icon="{path: 'STATUS', formatter: '.status'}"/>
+                                                        <Input value="{VAR}" editable="false"/>
+                                                        <Input value="{VAR_NAME}" editable="false"/>
+                                                        <Input value="{VAR_NO}" editable="false"/>
+                                                        <Input value="{MAJ_CLASS}" editable="false"/>
+                                                        <Input value="{MIN_CLASS}" editable="false"/>
+                                                        <Input value="{DS_SCT}" editable="false"/>
+                                                        <Input value="{DS_MANUAL}" editable="false"/>
+                                                        <Input value="{DIRECTION}" editable="false"/>
+                                                        <Input value="{STAGG_YEAR_MATRIX}" editable="false"/>
+                                                        <Input value="{STAGG_YEAR_VRC}" editable="false"/>
+                                                        <Input value="{EXCL_FLAG}" editable="false"/>
+                                                        <Input value="{FLAG_MATRIX}" editable="false"/>
+                                                        <Input value="{FLAG_VRC}" editable="false"/>
+                                                        <Input value="{PERIOD_START}" editable="false"/>
+                                                        <Input value="{PERIOD_END}" editable="false"/>
+                                                        <Input value="{VAR_ITM_NO}" editable="false"/>
+                                                        <Input value="{VAR_ITM_NAME}" editable="false"/>
+                                                        <Input value="{SCT_ENTITY}" editable="false"/>
+                                                        <Input value="{MEASURE_ID}" editable="false"/>
+                                                        <Input value="{DIM_ID}" editable="false"/>
+                                                        <Input value="{DIM_VAL}" editable="false"/>
+                                                    </cells>
+                                                </ColumnListItem>
+                                            </items>
+                                        </Table>
+                                    </ScrollContainer>
+                                <!-- </l:content> -->
+                            <!-- </l:VerticalLayout> -->
+                        </content>
+                    </IconTabFilter>
+                    <IconTabFilter text="Transaction" iconColor="Positive" id="filter1" icon="sap-icon://activity-items">
+                        <content>
+                            <l:VerticalLayout id="_IDGenVerticalLayout1">
+                                <l:content>
+                                    <!-- <u:FileUploader id="fileUploader2" width="800px" name="fup_data" uploadUrl="upload/" tooltip="Upload new material file to the server" change="handleValueChange" fileType="xlsx" typeMissmatch="handleTypeMissmatch" style="Emphasized" placeholder="Choose a file for Upload...">
+                                        <u:parameters>
+                                            <u:FileUploaderParameter name="param1" id="1" value="Foo"/>
+                                            <u:FileUploaderParameter name="param2" id="2" value="bar"/>
+                                        </u:parameters>
+                                        <u:headerParameters>
+                                            <u:FileUploaderParameter name="headerParam1" id="3" value="Foo"/>
+                                            <u:FileUploaderParameter name="headerParam2" id="4" value="bar"/>
+                                        </u:headerParameters>
+                                    </u:FileUploader>
+                                    <Bar id="bar">
+                                        <contentLeft>
+                                            <Button id="_IDGenButton1" width="400px" icon="sap-icon://upload" text="Import File" press="handleUploadExcel"/>
+                                        </contentLeft>
+                                        <contentRight>
+                                            <Button id="_IDGenButton2" width="400px" icon="sap-icon://complete" text="Submit" press="handleSubmitPress2"/>
+                                        </contentRight>
+                                    </Bar> -->
+                                    <!-- growing="true" -->
+                                     <!-- mode="SingleSelectLeft" -->
+                                    <Table xmlns="sap.m" id="itemsTable2" items="{/}" inset="false"  sticky="ColumnHeaders,HeaderToolbar" updateFinished="onTableUpdateFinished">
+                                        <headerToolbar>
+                                            <Toolbar>
+                                                <Title id="tblTitle" text="Transaction Data" level="Auto"/>
+                                                <!--         <Button id="_IDGenButton3" icon="sap-icon://database" text="Retrieve Data" press="handleRetrievePress" />
+                                                <Button id="_IDGenButton4" icon="sap-icon://add" text="Add Row" press="handleAddPress" />
+                                                <Button id="_IDGenButton5" icon="sap-icon://edit" text="Edit Row" press="handleEditPress" />
+                                                <Button id="_IDGenButton6" icon="sap-icon://delete" text="Delete Row" press="handleDeletePress" />
+                                                <Button id="_IDGenButton7" icon="sap-icon://save" text="Save Row" press="handleSavePress" /> -->
+                                            </Toolbar>
+                                        </headerToolbar>
+                                        <columns>
+                                            <Column width="100px">
+                                                <Text text="Status"/>
+                                            </Column>
+                                            <Column>
+                                                <Text text="Variables"/>
+                                            </Column>
+                                            <Column>
+                                                <Text text="Years"/>
+                                            </Column>
+                                            <Column>
+                                                <Text text="Value"/>
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" cd:w5g.dt.context="/Interactions_Header">
+                                                <cells>
+                                                    <ObjectStatus icon="{path: 'STATUS'}"/>
+                                                    <Input value="{VAR}" editable="false"/>
+                                                    <Input value="{YEAR}" editable="false"/>
+                                                    <Input id="value" value="{VALUE}"  editable="false" valueState="Error" />
+                                                </cells>
+                                            </ColumnListItem>
+                                            <!-- , formatter: '.status' -->
+                                        </items>
+                                    </Table>
+                                </l:content>
+                            </l:VerticalLayout>
+                        </content>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+        <!-- <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button type="Emphasized" icon="sap-icon://database" text="Retrieve" press="handleRetrievePress"/>
+                <Button icon="sap-icon://add" text="Add" press="handleAddPress"/>
+                <Button icon="sap-icon://edit" text="Edit" press="handleEditPress"/>
+                <Button type="Reject" icon="sap-icon://delete" text="Delete" press="handleDeletePress"/>
+                <Button type="Success" text="Save" press="handleSavePress"/>
+            </OverflowToolbar>
+        </footer> -->
+    </Page>
+</mvc:View>

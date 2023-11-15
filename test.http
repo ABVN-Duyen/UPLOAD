@@ -1,0 +1,35 @@
+###
+#
+# Browse Books
+#
+GET http://localhost:4004/catalog/Header
+  # &$select=title,stock
+  # &$expand=currency
+  # &sap-language=de
+
+###
+#
+# Get Author wit ID 101
+#
+GET https://services.odata.org/Northwind/Northwind.svc/Customers(CustomerID='ALFKI')/Address
+
+###
+#
+# Update Author with ID 101
+#
+POST http://localhost:41881/catalog/Interactions_Header?
+Content-Type: application/json
+
+{"ID": 101, "name": "Some Author"}
+
+
+###
+#
+# Order a Book
+#
+POST http://localhost:33565/catalog/Header
+Content-Type: application/json;IEEE754Compatible=true
+
+{"VAR": "test5", "YEARS": 5, "NAME": "Sang"}
+
+

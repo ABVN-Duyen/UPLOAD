@@ -1,0 +1,7 @@
+---
+applications:
+- name: ESG Data Collection
+  path: srv
+  random-route: true
+  services:
+  - hanadev-hana

@@ -1,0 +1,125 @@
+{
+    "_version": "1.12.0",
+    "sap.app": {
+        "id": "interactionheader",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "ESG Data Collection",
+        "description": "ESG Data Collection",
+        "dataSources": {
+            "mainService": {
+                "uri": "catalog/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "4.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "rootView": {
+            "viewName": "interactionheader.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        },
+        "dependencies": {
+            "minUI5Version": "1.60.1",
+            "libs": {
+                "sap.ui.layout": {},
+                "sap.ui.core": {},
+                "sap.m": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {
+                    "defaultBindingMode": "TwoWay"
+                }
+            },
+            "config": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleUrl": "./i18n/i18n.properties"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ],
+            "js": [
+                {
+                    "uri": "utils/xlsx.js"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "interactionheader.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false,
+                "viewLevel": 0,
+                "bypassed": {
+                    "target": []
+                }
+            },
+            "routes": [
+                {
+                    "name": "home",
+                    "pattern": "",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "home"
+                    ]
+                }
+            ],
+            "targets": {
+                "home": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewName": "Upload",
+                    "viewLevel": 1
+                }
+            }
+        }
+    }
+}

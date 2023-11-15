@@ -1,0 +1,49 @@
+<mvc:View
+	controllerName="interactionheader.controller.Upload"
+	xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	class="viewPadding">
+	<Page id="_IDGenPage1" showHeader="true" title="Upload CSV file" showFooter="true" showNavButton="true" navButtonPress="doNavBack">
+		<content>
+			<l:VerticalLayout id="_IDGenVerticalLayout1">
+				<u:FileUploader
+					id="fileUploader"
+					name="fup_data"
+					uploadUrl="file_upload.xsjs"
+					tooltip="Upload new material file to the server"
+					uploadComplete="handleUploadComplete"
+					change="handleValueChange"
+					typeMissmatch="handleTypeMissmatch"
+					style="Emphasized"
+					fileType="csv"
+					placeholder="Choose a file for Upload...">
+						<u:parameters>
+							<u:FileUploaderParameter
+								name="param1"
+                                id="1"
+								value="Foo"/>
+							<u:FileUploaderParameter
+								name="param2"
+                                id="2"
+								value="bar"/>
+						</u:parameters>
+						<u:headerParameters>
+							<u:FileUploaderParameter
+								name="headerParam1"
+                                id="3"
+								value="Foo"/>
+							<u:FileUploaderParameter
+								name="headerParam2"
+                                id="4"
+								value="bar"/>
+						</u:headerParameters>
+					</u:FileUploader>
+				<Button id="_IDGenButton1"
+					text="Upload File"
+					press="handleUploadPress"/>
+			</l:VerticalLayout>
+		</content>
+	</Page>
+</mvc:View>
